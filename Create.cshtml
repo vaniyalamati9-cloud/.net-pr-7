@@ -1,0 +1,53 @@
+﻿@model pr7.Models.Feedback
+
+@{
+    Layout = "~/Views/Shared/LayoutView.cshtml";
+}
+
+<h2>Feedback Form </h2>
+
+@Html.Partial("Studentinfo")
+
+@using (Html.BeginForm("Create", "Feedback", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>@Html.LabelFor(model => model.EnrollmentNo)</td>
+            <td>@Html.EditorFor(model => model.EnrollmentNo)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(model => model.StudentName)</td>
+            <td>@Html.TextBoxFor(model => model.StudentName)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(model => model.Subject)</td>
+            <td>@Html.TextBoxFor(model => model.Subject)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(model => model.Rating)</td>
+            <td>@Html.TextBoxFor(model => model.Rating)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(model => model.Comments)</td>
+            <td>@Html.TextAreaFor(model => model.Comments)</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Submit Feedback" />
+            </td>
+        </tr>
+
+    </table>
+}
+
+<br />
+
+<p>
+    @Html.ActionLink("Back to Home", "Index", "Feedback")
+</p>

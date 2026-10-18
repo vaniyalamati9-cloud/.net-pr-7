@@ -1,0 +1,38 @@
+﻿@model List<pr7.Models.Feedback>
+
+@{
+    Layout = "~/Views/Shared/LayoutView.cshtml";
+}
+
+<h2>Feedback List</h2>
+
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Enrollment No</th>
+        <th>Student Name</th>
+        <th>Subject</th>
+        <th>Rating</th>
+        <th>Comments</th>
+    </tr>
+
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>@i.EnrollmentNo</td>
+            <td>@i.StudentName</td>
+            <td>@i.Subject</td>
+            <td>@i.Rating</td>
+            <td>@i.Comments</td>
+        </tr>
+    }
+</table>
+
+<br />
+
+@Html.ActionLink("Give another Feedback", "Create", "Feedback")
+
+<br />
+
+<p>
+    @Html.ActionLink("Back to Home", "Index", "Feedback")
+</p>
